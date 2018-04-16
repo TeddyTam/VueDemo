@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My first Vue app</title>
+    <meta charset="utf-8"></meta>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+
+<body>
+    <div id="app-8">
+        <p>{{ foo }}</p>
+        <!-- 这里的 `foo` 不会更新！ -->
+        <button v-on:click="foo = 'baz'">Change it</button>
+    </div>
+
+
+    <script>
+        var obj = {
+            foo: 'bar'
+        }
+
+        Object.freeze(obj)
+
+        var vm=new Vue({
+            el: '#app-8',
+            data: obj
+        })
+
+
+    </script>
+</body>
+
+</html>
