@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My first Vue app</title>
+    <meta charset="utf-8"></meta>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+
+<body>
+    <div id="app-10">
+        <p>{{ a }}</p>
+        <button v-on:click="a = 7">Change it</button>
+    </div>
+
+
+    <script>
+        var data = { a: 1 }
+        var vm = new Vue({
+            el: '#app-10',
+            data: data,
+            created:function(){
+                // 'this' 指向vm实例
+                data.a=3;
+                console.log('a is:'+this.a);
+            },
+            mounted:function(){
+                console.log('a is:'+this.a)
+            },
+            updated:function(){
+                console.log('a is:'+this.a);
+            },
+
+
+        })
+        // =>"a is:1"
+        
+    </script>
+</body>
+
+</html>
