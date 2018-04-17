@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My first Vue app</title>
+    <meta charset="utf-8"></meta>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+
+<body>
+    <div id="app">
+        <button v-on:click="doSomething">点击事件</button>
+    </div>
+
+    <script>
+
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                doSomething:function(){
+                    alert("点击了");
+                }
+
+            }
+
+        })
+
+    </script>
+</body>
+
+</html>

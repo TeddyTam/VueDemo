@@ -12,6 +12,7 @@
         <div v-bind:id="dynamicId"></div>
         <button v-bind:disabled="isButtonDisabled">Button</button>
         <button v-bind:disabled="isButtonDisabled2">Button2</button>
+        <a v-bind:href="url">无敌的链接</a>
     </div>
 
     <script>
@@ -21,7 +22,8 @@
             data: {
                 dynamicId: 123,
                 isButtonDisabled:null,
-                isButtonDisabled2:true
+                isButtonDisabled2:true,
+                url:"http://www.topgameshow.com"
             }
 
         })
