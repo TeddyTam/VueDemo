@@ -11,11 +11,16 @@
     <div id="app">
         <div id="example">
             <p>Original message: "{{ message }}"</p>
-            <p>Computed reversed message: "{{ reversedMessage }}"</p>
+            <p>Computed reversed message1: "{{ reversedMessage }}"</p>
+            <p>Computed reversed message2: "{{ reversedMessage }}"</p>
+            <p>Computed reversed message by method: "{{ reversedMessage2() }}"</p>
+            <p>Computed reversed message by method2: "{{ reversedMessage2() }}"</p>
         </div>
     </div>
 
     <script>
+        var  count=0;
+        var  count2=0;
 
         var vm = new Vue({
             el: '#example',
@@ -26,9 +31,20 @@
                 // 计算属性的 getter
                 reversedMessage: function () {
                     // `this` 指向 vm 实例
+                    count++;
+                    console.log("第"+count+"次调用 computed attribute")
+                    return this.message.split('').reverse().join('')
+                }
+            },
+            methods:{
+                reversedMessage2: function () {
+                    // `this` 指向 vm 实例
+                    count2++;
+                    console.log("第"+count2+"次调用 method")
                     return this.message.split('').reverse().join('')
                 }
             }
+
         })
 
     </script>
