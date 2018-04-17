@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My first Vue app</title>
+    <meta charset="utf-8"></meta>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+
+<body>
+    <div id="app">
+        <span v-once>这个将不会改变: {{ msg }}</span>
+    </div>
+
+    <script>
+      
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                msg:"我真的不再改变了，哈哈，不要想我"
+            }
+
+        })
+        
+    </script>
+</body>
+
+</html>
