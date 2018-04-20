@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My first Vue app</title>
+    <meta charset="utf-8"></meta>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+
+<body>
+    <div id="app">
+        <div v-bind:style="{ color: activeColor, fontSize: fontSize + 'px' }">hi</div>
+        <div v-bind:style="styleObject">hello</div>
+        <div v-bind:style="[baseStyles, overridingStyles]">hello,world</div>
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                activeColor: 'red',
+                fontSize: 30,
+                styleObject: {
+                    color: 'black',
+                    fontSize: '30px'
+                },
+                baseStyles:{color: 'blue' },
+                overridingStyles:{fontSize:'30px'}
+            }
+
+
+        })
+    </script>
+</body>
+
+</html>
