@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My first Vue app</title>
+    <meta charset="utf-8"></meta>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+
+<body>
+    <div id="app">
+        <my-component class="baz boo"></my-component>
+        <my-component v-bind:class="{ active: isActive }"></my-component>
+    </div>
+
+    <script>
+        Vue.component('my-component', {
+            template: '<p class="foo bar">Hi</p>'
+        })
+
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                isActive: true
+            }
+
+        })
+    </script>
+</body>
+
+</html>
