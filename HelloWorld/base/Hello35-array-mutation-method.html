@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My first Vue app</title>
+    <meta charset="utf-8"></meta>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+
+<body>
+    <div id="app">
+        <div v-for="(item,index) in items">
+            {{index}}-{{item.firstName}}-{{item.lastName}}-{{item.age}}
+        </div>
+
+        <button v-on:click='arrayPush'>push</button>
+        <button v-on:click='arrayPop'>pop</button>
+        <button v-on:click='arrayShift'>shift</button>
+        <button v-on:click='arrayUnshift'>unshift</button>
+        <button v-on:click='arraySplice'>splice</button>
+        <button v-on:click='arraySort'>sort</button>
+        <button v-on:click='arrayReverse'>reverse</button>
+        
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                items: [
+                    {
+                        firstName: '123',
+                        lastName: '678',
+                        age:10
+                    },
+                    {
+                        firstName: 'er',
+                        lastName: 'aaaa',
+                        age:6
+                    }
+                ]
+            },
+            methods: {
+                arrayPush: function () {
+                    this.items.push({
+                        firstName: 'xiaosan',
+                        lastName: 'xiaosan',
+                        age:1
+                    })
+                },
+                arrayPop: function () {
+                    this.items.pop();
+                },
+                arrayShift: function () {
+                    this.items.shift();
+                },
+                arrayUnshift: function () {
+                    this.items.unshift({
+                        firstName: 'sss',
+                        lastName: 'sss',
+                        age:12
+                    });
+                },
+                arraySplice: function () {
+                    this.items.splice(1,0,{
+                        firstName: 'aaa',
+                        lastName: 'aaa',
+                        age:43
+                    });
+                },
+                arraySort: function () {
+                    this.items.sort((a,b)=>{ return a.age<b.age});
+                },
+                arrayReverse: function () {
+                    this.items.reverse();
+                },
+           
+            }
+
+        })
+    </script>
+</body>
+
+</html>
