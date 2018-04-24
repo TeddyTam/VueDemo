@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My first Vue app</title>
+    <meta charset="utf-8"></meta>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+
+<body>
+    <div id="app">
+
+        <div v-for="(value,key,index) in userProfile">
+            {{index}}-{{key}}-{{value}}
+        </div>
+
+        <button v-on:click='objectSet'>set</button>
+
+    </div>
+
+    <script>
+
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                userProfile: {
+                    name: 'Anika'
+                }
+            },
+            methods: {
+                objectSet: function () {
+                    Vue.set(vm.userProfile, 'age', 27);
+
+                    //vm.$set(vm.userProfile, 'age', 27);
+                    //两种写法都可以
+                },
+
+
+            }
+
+        })
+    </script>
+</body>
+
+</html>
