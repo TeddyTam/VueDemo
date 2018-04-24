@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My first Vue app</title>
+    <meta charset="utf-8"></meta>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+
+<body>
+    <div id="app">
+
+        <div v-for="(value,key,index) in userProfile">
+            {{index}}-{{key}}-{{value}}
+        </div>
+
+        <button v-on:click='objectAssign'>set</button>
+
+    </div>
+
+    <script>
+
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                userProfile: {
+                    name: 'Anika'
+                }
+            },
+            methods: {
+                objectAssign: function () {
+                    vm.userProfile = Object.assign({}, vm.userProfile, {
+                        age: 27,
+                        favoriteColor: 'Vue Green'
+                    });
+                   
+                    //错误的写法
+                    // Object.assign(vm.userProfile, {
+                    //     age: 27,
+                    //     favoriteColor: 'Vue Green'
+                    // })
+
+                },
+
+
+            }
+
+        })
+    </script>
+</body>
+
+</html>
