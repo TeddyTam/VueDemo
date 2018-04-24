@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My first Vue app</title>
+    <meta charset="utf-8"></meta>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+
+<body>
+    <div id="app">
+      
+        <div v-for="(item,index) in items">
+            {{index}}-{{item.firstName}}-{{item.lastName}}-{{item.age}}
+        </div>
+      
+        <button v-on:click='arraySet'>set</button>
+       
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                items: [
+                    {
+                        firstName: 'teddy',
+                        lastName: 'tam',
+                        age: 10
+                    },
+                    {
+                        firstName: 'phoenix',
+                        lastName: 'he',
+                        age: 6
+                    }
+                ]
+                
+            },
+            methods: {
+                arraySet: function () {
+                    Vue.set(this.items, 1, {
+                        firstName: 'tyl',
+                        lastName: 'tan',
+                        age: 18
+                    })
+
+                    //  vm.$set(this.items, 1, {
+                    //     firstName: 'tyl',
+                    //     lastName: 'tan',
+                    //     age: 18
+                    // })
+                    //两种写法都可以
+
+                },
+               
+
+            }
+
+        })
+    </script>
+</body>
+
+</html>
