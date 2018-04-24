@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My first Vue app</title>
+    <meta charset="utf-8"></meta>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+
+<body>
+    <div id="app">
+        <p>old items array</p>
+        <div v-for="(item,index) in items">
+            {{index}}-{{item.firstName}}-{{item.lastName}}-{{item.age}}
+        </div>
+        <p>new items array</p>
+        <div v-for="(item,index) in newItems">
+            {{index}}-{{item.firstName}}-{{item.lastName}}-{{item.age}}
+        </div>
+
+        <button v-on:click='arrayFilter'>filter</button>
+        <button v-on:click='arrayConcat'>concat</button>
+        <button v-on:click='arraySlice'>slice</button>
+       
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                items: [
+                    {
+                        firstName: '123',
+                        lastName: '678',
+                        age: 10
+                    },
+                    {
+                        firstName: 'er',
+                        lastName: 'aaaa',
+                        age: 6
+                    }
+                ],
+                newItems: []
+            },
+            methods: {
+                arrayFilter: function () {
+                    this.newItems = this.items.filter(function (item) {
+                        return item.age > 7;
+                    })
+                },
+                arrayConcat: function () {
+                    var targets = [
+                        {
+                            firstName: '5555',
+                            lastName: '7777',
+                            age: 89
+                        },
+                        {
+                            firstName: '0000',
+                            lastName: '333',
+                            age: 12
+                        }];
+                    this.newItems = this.items.concat(targets);
+                },
+                arraySlice: function () {
+                    this.newItems= this.items.slice(1);
+                },
+               
+            }
+
+        })
+    </script>
+</body>
+
+</html>
