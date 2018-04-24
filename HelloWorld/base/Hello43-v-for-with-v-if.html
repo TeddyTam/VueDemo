@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My first Vue app</title>
+    <meta charset="utf-8"></meta>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 同级别v-for级别比v-if高，跟顺序无关 -->
+        <li  v-for="todo in todos" v-if="!todo.isComplete">
+            {{ todo }}
+        </li>
+
+        <!-- 需要先执行v-if可以把它嵌套在v-for外面 -->
+        <ul v-if="todos.length">
+            <li v-for="todo in todos">
+                {{ todo }}
+            </li>
+        </ul>
+        <p v-else>No todos left!</p>
+    </div>
+
+    <script>
+
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                todos: [
+                    {
+                        msg: 'hello',
+                        isComplete: true
+                    },
+                    {
+                        msg: 'hi',
+                        isComplete: false
+                    }
+                ]
+            }
+        })
+
+    </script>
+</body>
+
+</html>
