@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My first Vue app</title>
+    <meta charset="utf-8"></meta>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+
+<body>
+    <div id="app">
+        <div id="example-1">
+            <button v-on:click="counter += 1">Add 1</button>
+            <p>The button above has been clicked {{ counter }} times.</p>
+        </div>
+    </div>
+
+    <script>
+
+        var example1 = new Vue({
+            el: '#example-1',
+            data: {
+                counter: 0
+            }
+        })
+
+    </script>
+</body>
+
+</html>
