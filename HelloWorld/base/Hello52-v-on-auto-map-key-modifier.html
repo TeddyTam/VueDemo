@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My first Vue app</title>
+    <meta charset="utf-8"></meta>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+
+<body>
+    <div id="app">
+     
+        <div>
+            <p>auto map keycode modifier</p>
+            <input @keyup.page-down="onPageDown">
+        </div>
+
+
+
+    </div>
+
+    <script>
+
+        new Vue({
+            el: '#app',
+            data: {},
+            methods: {
+                onPageDown: function () {
+                    alert('按下了PageDown键！');
+                }
+            }
+        })
+
+    </script>
+</body>
+
+</html>
