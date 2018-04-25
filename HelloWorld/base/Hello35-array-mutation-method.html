@@ -20,7 +20,7 @@
         <button v-on:click='arraySplice'>splice</button>
         <button v-on:click='arraySort'>sort</button>
         <button v-on:click='arrayReverse'>reverse</button>
-        
+
     </div>
 
     <script>
@@ -31,12 +31,12 @@
                     {
                         firstName: '123',
                         lastName: '678',
-                        age:10
+                        age: 10
                     },
                     {
                         firstName: 'er',
                         lastName: 'aaaa',
-                        age:6
+                        age: 6
                     }
                 ]
             },
@@ -45,7 +45,7 @@
                     this.items.push({
                         firstName: 'xiaosan',
                         lastName: 'xiaosan',
-                        age:1
+                        age: 1
                     })
                 },
                 arrayPop: function () {
@@ -58,23 +58,23 @@
                     this.items.unshift({
                         firstName: 'sss',
                         lastName: 'sss',
-                        age:12
+                        age: 12
                     });
                 },
                 arraySplice: function () {
-                    this.items.splice(1,0,{
+                    this.items.splice(1, 0, {
                         firstName: 'aaa',
                         lastName: 'aaa',
-                        age:43
+                        age: 43
                     });
                 },
                 arraySort: function () {
-                    this.items.sort((a,b)=>{ return a.age<b.age});
+                    this.items.sort((a, b) => { return a.age < b.age });
                 },
                 arrayReverse: function () {
                     this.items.reverse();
                 },
-           
+
             }
 
         })
