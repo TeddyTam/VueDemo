@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My first Vue app</title>
+    <meta charset="utf-8"></meta>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+
+<body>
+    <div id="app">
+
+         <!-- 即使 Ctrl 或 Shift 被一同按下时也会触发 -->
+         <button @click.ctrl="onClick">即使 Ctrl 或 Shift 被一同按下时也会触发</button>
+
+         <!-- 有且只有 Ctrl 被按下的时候才触发 -->
+         <button @click.ctrl.exact="onCtrlClick">有且只有 Ctrl 被按下的时候才触发</button>
+
+         <!-- 没有任何系统修饰符被按下的时候才触发 -->
+         <button @click.exact="onAllClick">没有任何系统修饰符被按下的时候才触发</button>
+
+    </div>
+
+    <script>
+
+        new Vue({
+            el: '#app',
+            data: {},
+            methods: {
+                onClick: function () {
+                    alert('没有设置exact');
+                },
+                onCtrlClick: function () {
+                    alert('设置了exact');
+                },
+                onAllClick:function()
+                {
+                    alert('没有任何系统修饰符被按下');
+                }
+            }
+        })
+
+    </script>
+</body>
+
+</html>
