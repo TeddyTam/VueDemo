@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My first Vue app</title>
+    <meta charset="utf-8"></meta>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+
+<body>
+    <div id="app">
+
+         <button @click.left="onLeftClick">鼠标左键点击</button>
+
+         <button @click.right="onRightClick">鼠标右键点击</button>
+
+         <button @click.middle="onMiddleClick">鼠标中键点击</button>
+
+    </div>
+
+    <script>
+
+        new Vue({
+            el: '#app',
+            data: {},
+            methods: {
+                onLeftClick: function () {
+                    alert('鼠标左键点击');
+                },
+                onRightClick: function () {
+                    alert('鼠标右键点击');
+                },
+                onMiddleClick:function()
+                {
+                    alert('鼠标中键点击');
+                }
+            }
+        })
+
+    </script>
+</body>
+
+</html>
