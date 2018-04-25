@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My first Vue app</title>
+    <meta charset="utf-8"></meta>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 只有在 `keyCode` 是 13 时调用 `vm.submit()` -->
+        <div>
+            <p>Enter</p>
+            <input v-on:keyup.13="submit('Enter')">
+
+            <!-- 同上 -->
+            <input v-on:keyup.enter="submit('Enter')">
+
+            <!-- 缩写语法 -->
+            <input @keyup.enter="submit('Enter')">
+        </div>
+
+        <div>
+            <p>Tab</p>
+            <input @keydown.tab="submit('tab')">
+        </div>
+
+        <div>
+            <p>delete</p>
+            <input @keyup.delete="submit('delete')">
+        </div>
+
+        <div>
+            <p>esc</p>
+            <input @keyup.esc="submit('esc')">
+        </div>
+
+        <div>
+            <p>space</p>
+            <input @keyup.space="submit('space')">
+        </div>
+
+        <div>
+            <p>up</p>
+            <input @keyup.up="submit('up')">
+        </div>
+
+        <div>
+            <p>down</p>
+            <input @keyup.down="submit('down')">
+        </div>
+
+        <div>
+            <p>left</p>
+            <input @keyup.left="submit('left')">
+        </div>
+
+        <div>
+            <p>right</p>
+            <input @keyup.right="submit('right')">
+        </div>
+
+    </div>
+
+    <script>
+
+        new Vue({
+            el: '#app',
+            data: {},
+            methods: {
+                submit: function (keyName) {
+                    alert('按下了' + keyName + '键！');
+                }
+            }
+        })
+
+    </script>
+</body>
+
+</html>
