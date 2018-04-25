@@ -9,7 +9,7 @@
 
 <body>
     <div id="app">
-        <!-- 只有在 `keyCode` 是 13 时调用 `vm.submit()` -->
+     
         <div>
             <p>Custom keycode modifier</p>
             <input v-on:keyup.f1="submit('f1')">
@@ -21,6 +21,7 @@
     </div>
 
     <script>
+        // 可以使用 `v-on:keyup.f1`
         Vue.config.keyCodes.f1 = 112;
 
         new Vue({
