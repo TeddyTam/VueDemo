@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My first Vue app</title>
+    <meta charset="utf-8"></meta>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+
+<body>
+    <div id="app">
+        <div>
+                <input type="radio" id="one" value="One" v-model="picked">
+                <label for="one">One</label>
+                <br>
+                <input type="radio" id="two" value="Two" v-model="picked">
+                <label for="two">Two</label>
+                <br>
+                <span>Picked: {{ picked }}</span>
+        </div>
+        
+        <div>
+
+                <input type="radio" id="three" value="Three" v-model="picked2">
+                <label for="three">Three</label>
+                <br>
+                <input type="radio" id="four" value="Four" v-model="picked2">
+                <label for="four">Four</label>
+                <br>
+                <span>Picked: {{ picked2 }}</span>
+        </div>
+    </div>
+
+    <script>
+
+        new Vue({
+            el: '#app',
+            data: {
+                picked: '',
+                picked2:''
+            }
+        })
+
+    </script>
+</body>
+
+</html>
