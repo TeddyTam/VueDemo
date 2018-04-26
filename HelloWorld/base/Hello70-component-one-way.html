@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My first Vue app</title>
+    <meta charset="utf-8"></meta>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+
+<body>
+    <div id="app">
+
+        <child v-bind:initial-counter='initialCounter' v-bind:size='size'></child>
+
+
+    </div>
+
+    <script>
+        // 避免子组件改变父组件的值，导致状态无法理解，所以可以用以下方式应对
+        // 1、Prop 作为初始值传入后，子组件想把它当作局部数据来用；
+        // 2、Prop 作为原始数据传入，由子组件处理成其它数据输出。
+
+        Vue.component('child', {
+            props: ['initialCounter', 'size'],
+            template: '<span>{{ counter }},{{ normalizedSize }}</span>',
+            data: function () {
+                return { counter: this.initialCounter }
+            },
+            computed: {
+                normalizedSize: function () {
+                    return this.size.trim().toLowerCase()
+                }
+            }
+
+        })
+
+        new Vue({
+            el: '#app',
+            data: {
+                initialCounter: 12,
+                size:'ABC'
+            }
+        })
+
+    </script>
+</body>
+
+</html>
