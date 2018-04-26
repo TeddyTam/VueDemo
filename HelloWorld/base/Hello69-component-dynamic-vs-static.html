@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My first Vue app</title>
+    <meta charset="utf-8"></meta>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+
+<body>
+    <div id="app">
+        <child message="hello!"></child>
+        <br />
+        <child v-bind:message="Msg"></child>
+
+    </div>
+
+    <script>
+
+        Vue.component('child', {
+            props: ['message'],
+            template: '<span>{{ message }}</span>'
+        })
+
+        new Vue({
+            el: '#app',
+            data: {
+                Msg: 'dynamic message'
+            }
+        })
+
+    </script>
+</body>
+
+</html>
