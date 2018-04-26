@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My first Vue app</title>
+    <meta charset="utf-8"></meta>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+
+<body>
+    <div id="app">
+        <input v-model="todo">
+        <br>
+        <todo-item v-bind:todo="todo"></todo-item>
+
+        <!-- 等价于如下写法 -->
+        <!-- <todo-item v-bind:text="todo.text" v-bind:is-complete="todo.info"></todo-item> -->
+    </div>
+
+    <script>
+
+        Vue.component('todo-item', {
+            props: ['todo'],
+            template: '<div><div>{{ todo.text }}</div><div>{{ todo.isComplete }}</div></div>'
+        })
+
+        new Vue({
+            el: '#app',
+            data: {
+                todo: {
+                    text: 'Learn Vue',
+                    isComplete: false
+                }
+            }
+        })
+
+    </script>
+</body>
+
+</html>
