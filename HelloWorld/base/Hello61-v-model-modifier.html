@@ -10,24 +10,12 @@
 <body>
     <div id="app">
         <div>
-            <!-- 当选中时，`picked` 为字符串 "a" -->
-            <input type="radio" v-model="picked" value="a">
+            <!-- 在“change”时而非“input”时更新 -->
+            <input v-model.lazy="msg" />
 
-            <!-- `toggle` 为 true 或 false -->
-            <input type="checkbox" v-model="toggle1">
+            <input v-model.number="age" type="number">
 
-            <!-- 当选中第一个选项时，`selected` 为字符串 "abc" -->
-            <select v-model="selected">
-                <option value="abc">ABC</option>
-            </select>
-
-            <input type="checkbox" v-model="toggle2" true-value="yes" false-value="no">
-
-            <select v-model="selected2">
-                <!-- 内联对象字面量 -->
-                <option v-bind:value="{ number: 123 }">123</option>
-            </select>
-
+            <input v-model.trim="name">
         </div>
 
     </div>
@@ -37,12 +25,9 @@
         var vm = new Vue({
             el: '#app',
             data: {
-                picked: '',
-                toggle1: false,
-                selected: '',
-                toggle2: 'yes',
-                selected2:null
-
+                msg: '',
+                age: '',
+                name:''
             }
         })
 
