@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My first Vue app</title>
+    <meta charset="utf-8"></meta>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+
+<body>
+    <div id="app">
+        <button id="btn1" @click='clickA'>A</button>
+    </div>
+
+    <div id="app2">
+        <input type="checkbox" id="ckb" :checked='ckbChecked'>
+    </div>
+
+    <script>
+
+        var bus = new Vue()
+
+        var vm = new Vue({
+            el: '#app',
+            methods: {
+                clickA: function () {
+                    bus.$emit('change', { checked: true });
+                }
+            }
+
+        });
+
+        var vm2 = new Vue({
+            el: '#app2',
+            data: {
+                ckbChecked: false
+            },
+            created: function () {
+                //bus接收事件
+                bus.$on('change', (data) => {
+                    this.ckbChecked = data.checked;
+                });
+
+            }
+
+        });
+    </script>
+
+</body>
+
+</html>
