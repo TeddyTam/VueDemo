@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My first Vue app</title>
+    <meta charset="utf-8"></meta>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 用native监听原生态的事件，首先会执行子组件事件，然后执行父组件事件 -->
+        <my-component v-on:click.native="myComponentClick" name='native'></my-component>
+
+        <!-- 没有用native，只会执行子组件事件 -->
+        <my-component v-on:click="myComponentClick" name='none'></my-component>
+    </div>
+
+    <script>
+        Vue.component('my-component', {
+            props:['name'],
+            template: '<div><button v-on:click="handleSendMessage">{{name}}</button></div>',
+            methods: {
+                handleSendMessage: function () {
+                    //this.$emit('accept-message', { info: this.message })
+                    alert('这是子组件事件');
+                }
+            }
+        })
+
+        new Vue({
+            el: '#app',
+            data: {
+            },
+            methods: {
+                myComponentClick: function () {
+                    alert('这是父组件事件');
+                }
+            }
+        })
+
+    </script>
+</body>
+
+</html>
