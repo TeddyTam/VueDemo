@@ -12,7 +12,7 @@
 
         <div id="message-event-example" class="demo">
             <p v-for="msg in messages">{{ msg }}</p>
-            <button-message v-on:message="handleMessage"></button-message>
+            <button-message v-on:accept-message="handleMessage"></button-message>
         </div>
 
     </div>
@@ -27,7 +27,7 @@
             },
             methods: {
                 handleSendMessage: function () {
-                    this.$emit('message', { message: this.message })
+                    this.$emit('accept-message', { info: this.message })
                 }
             }
         })
@@ -39,7 +39,7 @@
             },
             methods: {
                 handleMessage: function (payload) {
-                    this.messages.push(payload.message)
+                    this.messages.push(payload.info)
                 }
             }
         })
