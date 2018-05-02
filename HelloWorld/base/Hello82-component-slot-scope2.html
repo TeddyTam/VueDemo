@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My first Vue app</title>
+    <meta charset="utf-8"></meta>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- <ul>
+            <slot name="item" v-for="item in items" :text="item.text">
+                
+            </slot>
+        </ul> -->
+
+
+        <my-awesome-list :items="items">
+            <!-- 作用域插槽也可以是具名的 -->
+            <li slot="item" slot-scope="props" class="my-fancy-item">
+                {{ props.text }}
+            </li>
+        </my-awesome-list>
+
+    </div>
+
+    <script>
+
+        Vue.component('my-awesome-list', {
+            template: '<ul><slot name="item" v-for="item in items" :text="item.text"></slot></ul>'
+
+        })
+
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                items:[
+                    {
+                        id:0,
+                        text:'text123',
+                    },
+                    {
+                        id:1,
+                        text:'txt9999',
+                    },
+                    {
+                        id:2,
+                        text:'4444'
+                    }
+
+                ]
+            },
+
+        });
+    </script>
+
+</body>
+
+</html>
