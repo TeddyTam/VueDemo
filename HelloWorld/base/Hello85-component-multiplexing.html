@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My first Vue app</title>
+    <meta charset="utf-8"></meta>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+
+<body>
+    <div id="app">
+
+            <my-component
+            :foo="baz"
+            :bar="qux"
+            @event-a="doThis"
+            @event-b="doThat"
+          >
+            <img slot="icon" src="...">
+            <p slot="main-text">Hello!</p>
+          </my-component>
+
+    </div>
+
+    <script>
+      Vue.component('my-component', {
+            template: '<div><h2>我是子组件的标题</h2><slot>只有在没有要分发的内容时才会显示。</slot></div>'
+
+        })
+
+        var vm = new Vue({
+            el: '#app',
+            data: {
+            }
+            
+        })
+
+
+        // // 第二种写法
+        // var Home = {
+        //     template: '<p>Welcome home!</p>'
+        // }
+
+        // var vm = new Vue({
+        //     el: '#app',
+        //     data: {
+        //         currentView: Home
+        //     }
+        // })
+
+    </script>
+
+</body>
+
+</html>
