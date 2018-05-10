@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My first Vue app</title>
+    <meta charset="utf-8"></meta>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+
+<body>
+    <div id="app">
+        <my-component id='example'>
+        </my-component>
+    </div>
+
+    <script>
+
+        var vm = new Vue({
+            el: '#app',
+            data: {
+            },
+            components: {
+                'my-component': () => import('./my-async-component'),
+            }
+        })
+
+    </script>
+
+</body>
+
+</html>
