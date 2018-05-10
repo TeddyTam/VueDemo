@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My first Vue app</title>
+    <meta charset="utf-8"></meta>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+
+<body>
+    <div id='app'>
+        <async-webpack-example id='example'></async-webpack-example>
+    </div>
+
+
+    <script>
+        Vue.component(
+            'async-webpack-example',
+            // 该 `import` 函数返回一个 `Promise` 对象。
+            () => import('./my-async-component')
+        )
+        
+        var vm = new Vue({
+            el: '#app',
+            data: {
+            }
+
+        })
+
+
+
+    </script>
+
+</body>
+
+</html>
