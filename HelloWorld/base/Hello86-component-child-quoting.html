@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My first Vue app</title>
+    <meta charset="utf-8"></meta>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+
+<body>
+    <div id='app'>
+        <div id="parent">
+            <user-profile ref="profile"></user-profile>
+        </div>
+    </div>
+
+
+    <script>
+        Vue.component('user-profile', {
+            template: '<div><h2>我是子组件的标题</h2><slot></slot></div>'
+
+        })
+
+        // var vm = new Vue({
+        //     el: '#app',
+        //     data: {
+        //     }
+
+        // })
+
+        var parent = new Vue({ el: '#parent' })
+        // 访问子组件实例
+        var child = parent.$refs.profile
+
+    </script>
+
+</body>
+
+</html>
