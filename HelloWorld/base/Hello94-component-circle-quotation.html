@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My first Vue app</title>
+    <meta charset="utf-8"></meta>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+
+<body>
+    <div id="app">
+
+        <!-- <p>
+            <span>{{ folder.name }}</span>
+            <tree-folder-contents :children="folder.children" />
+        </p> -->
+
+        <!-- <ul>
+            <li v-for="child in children">
+                <tree-folder v-if="child.children" :folder="child" />
+                <span v-else>{{ child.name }}</span>
+            </li>
+        </ul> -->
+
+        <parent-component></parent-component>
+
+        <child-component></child-component>
+
+    </div>
+
+    <script>
+        Vue.component('parent-component', {
+            template: '<p><span>{{ folder.name }}</span><tree-folder-contents :children="folder.children" /></p>'
+        })
+
+        Vue.component('child-component', {
+            template: '<ul><li v-for="child in children"><tree-folder v-if="child.children" :folder="child" /><span v-else>{{ child.name }}</span></li></ul>'
+        })
+
+        var vm = new Vue({
+            el: '#app',
+            data: {
+            },
+            beforeCreate: function () {
+                this.$options.components.TreeFolderContents = require('./tree-folder-contents.vue').default
+            }
+        })
+
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>
