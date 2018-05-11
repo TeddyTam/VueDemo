@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My first Vue app</title>
+    <meta charset="utf-8"></meta>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+
+<body>
+    <div id="app">
+
+        <!-- <my-component inline-template>
+            <div>
+              <p>这些将作为组件自身的模板。</p>
+              <p>而非父组件透传进来的内容。</p>
+            </div>
+          </my-component> -->
+
+        <my-component></my-component>
+
+    </div>
+
+    <script>
+        Vue.component('my-component', {
+            template: '<my-component inline-template><div><p>这些将作为组件自身的模板。</p><p>而非父组件透传进来的内容。</p></div></my-component>'
+        })
+
+        var vm = new Vue({
+            el: '#app',
+            data: {
+            }
+            
+        })
+
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>
