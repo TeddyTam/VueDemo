@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My first Vue app</title>
+    <meta charset="utf-8"></meta>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+
+<body>
+    <div id="app">
+
+        <component v-bind:is="currentView">
+            <!-- 组件在 vm.currentview 变化时改变！ -->
+        </component>
+
+
+        <kebab-cased-component></kebab-cased-component>
+
+        <camel-cased-component></camel-cased-component>
+        <camelCasedComponent></camelCasedComponent>
+
+        <pascal-cased-component></pascal-cased-component>
+        <pascalCasedComponent></pascalCasedComponent>
+        <PascalCasedComponent></PascalCasedComponent>
+
+    </div>
+
+    <script>
+
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                currentView: 'kebab-cased-component'
+            },
+
+            // 在组件定义中
+            components: {
+                // 使用 kebab-case 注册
+                'kebab-cased-component': { template: '<p>kebab-cased-component!</p>' },
+                // 使用 camelCase 注册
+                'camelCasedComponent': { template: '<p>camelCasedComponent!</p>' },
+                // 使用 PascalCase 注册
+                'PascalCasedComponent': { template: '<p>PascalCasedComponent!</p>' }
+            }
+
+
+        })
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>
