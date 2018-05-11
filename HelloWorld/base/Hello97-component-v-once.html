@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My first Vue app</title>
+    <meta charset="utf-8"></meta>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+
+<body>
+    <div id="app">
+
+        <terms-of-service></terms-of-service>
+
+    </div>
+
+    <script>
+        Vue.component('terms-of-service', {
+            template: '\
+                   <div v-once>\
+                   <h1>Terms of Service</h1>\
+                   ...很多静态内容...\
+                   </div>\
+'
+        })
+
+        var vm = new Vue({
+            el: '#app',
+            data: {
+            }
+
+        })
+
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>
