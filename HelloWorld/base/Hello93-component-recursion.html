@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My first Vue app</title>
+    <meta charset="utf-8"></meta>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+
+<body>
+    <div id="app">
+
+        <unique-name-of-my-component >
+        </unique-name-of-my-component>
+
+    </div>
+
+    <script>
+        Vue.component('unique-name-of-my-component', {
+            name: 'stack-overflow',//unique-name-of-my-component
+            template: '<div><stack-overflow></stack-overflow></div>'
+        })
+
+        var vm = new Vue({
+            el: '#app',
+            data: {
+            },
+
+        })
+
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>
