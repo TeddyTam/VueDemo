@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>advance</title>
+    <meta charset="utf-8"></meta>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+
+<body>
+    <div id="app">
+
+    </div>
+
+    <script>
+        var mixin = {
+            data: function () {
+                return {
+                    message: 'hello',
+                    foo: 'abc'
+                }
+            }
+        }
+
+        new Vue({
+            mixins: [mixin],
+            data: function () {
+                return {
+                    message: 'goodbye',
+                    bar: 'def'
+                }
+            },
+            created: function () {
+                console.log(this.$data)
+                // => { message: "goodbye", foo: "abc", bar: "def" }
+            }
+        })
+
+    </script>
+
+</body>
+
+</html>
