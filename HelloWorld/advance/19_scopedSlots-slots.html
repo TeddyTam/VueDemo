@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>advance</title>
+    <meta charset="utf-8"></meta>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+
+<body>
+    <div id="app">
+        <anchored-heading v-bind:value="valueData"></anchored-heading>
+    </div>
+
+    <script>
+
+        Vue.component('anchored-heading', {
+            // props: ['value'],
+            // render: function (createElement) {
+            //     return createElement('div', [
+            //         createElement('child', {
+            //             // pass `scopedSlots` in the data object
+            //             // in the form of { name: props => VNode | Array<VNode> }
+            //             scopedSlots: {
+            //                 default: function (props) {
+            //                     return createElement('span', props.text)
+            //                 }
+            //             }
+            //         })
+            //     ])
+            // }
+
+            props: ['value'],
+            render: function (createElement) {
+                return createElement('div', [
+                    createElement('div', {
+                        // pass `scopedSlots` in the data object
+                        // in the form of { name: props => VNode | Array<VNode> }
+                        scopedSlots: {
+                            default: function (props) {
+                                return createElement('span', props.text)
+                            }
+                        }
+                    })
+                ])
+            }
+
+            // render: function (createElement) {
+            //   // `<div><slot></slot></div>`
+            //   return createElement('div', this.$slots.default)
+            // }
+
+            // props: ['message'],
+            // render: function (createElement) {
+            //   // `<div><slot :text="message"></slot></div>`
+            //   return createElement('div', [
+            //     this.$scopedSlots.default({
+            //       text: this.message
+            //     })
+            //   ])
+            // }
+
+
+        })
+
+        var vm = new Vue({
+            el: '#app',
+            data:
+                {
+                    valueData: 'hi',
+                    message: "hello"
+                }
+        })
+
+    </script>
+
+</body>
+
+</html>
