@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>advance</title>
+    <meta charset="utf-8"></meta>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+
+<body>
+    <div id="app">
+        <anchored-heading>123</anchored-heading>
+    </div>
+
+    <script>
+
+        Vue.component('anchored-heading', {
+            // render: function (createElement) {
+            //     var myParagraphVNode = createElement('p', 'hi')
+            //     return createElement('div', [
+            //         // 错误-重复的 VNodes
+            //         myParagraphVNode, myParagraphVNode
+            //     ])
+            // }
+
+            render: function (createElement) {
+                return createElement('div',
+                    Array.apply(null, { length: 20 }).map(function () {
+                        return createElement('p', 'hi')
+                    })
+                )
+            }
+            
+        })
+
+        new Vue({
+            el: '#app'
+
+        })
+
+    </script>
+
+</body>
+
+</html>
