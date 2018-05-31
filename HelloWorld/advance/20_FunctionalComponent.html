@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>advance</title>
+    <meta charset="utf-8"></meta>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+
+<body>
+    <div id="app">
+        <my-component></my-component>
+    </div>
+
+    <script>
+
+        Vue.component('my-component', {
+            functional: true,
+            // Props 可选
+            props: {
+                // ...
+            },
+            // 为了弥补缺少的实例
+            // 提供第二个参数作为上下文
+            render: function (createElement, context) {
+                // ...
+            }
+        })
+
+        new Vue({
+            el: '#app'
+
+        })
+
+    </script>
+
+</body>
+
+</html>
