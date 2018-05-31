@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>advance</title>
+    <meta charset="utf-8"></meta>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 类似于创建以下的html -->
+        <!-- <ul v-if="items.length">
+            <li v-for="item in items">{{ item.name }}</li>
+        </ul>
+        <p v-else>No items found.</p> -->
+        <anchored-heading v-bind:items="itemData"></anchored-heading>
+    </div>
+
+    <script>
+
+        Vue.component('anchored-heading', {
+            props: ['items'],
+            render: function (createElement) {
+                debugger;
+                if (this.items.length) {
+                    return createElement('ul', this.items.map(function (item) {
+                        return createElement('li', item.name)
+                    }))
+                } else {
+                    return createElement('p', 'No items found.')
+                }
+            }
+
+
+        })
+
+        new Vue({
+            el: '#app',
+            data:
+                {
+                    itemData: [
+                        {
+                            name: 'Teddy',
+                            value: "10"
+                        },
+                        {
+                            name: 'Tam',
+                            value: "20"
+                        }
+                    ]
+                }
+        })
+
+    </script>
+
+</body>
+
+</html>
