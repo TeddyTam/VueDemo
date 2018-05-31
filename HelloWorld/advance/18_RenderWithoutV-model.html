@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>advance</title>
+    <meta charset="utf-8"></meta>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+
+<body>
+    <div id="app">
+        <anchored-heading v-bind:value="valueData"></anchored-heading>
+    </div>
+
+    <script>
+
+        Vue.component('anchored-heading', {
+            props: ['value'],
+            render: function (createElement) {
+                var self = this
+                return createElement('input', {
+                    domProps: {
+                        value: self.value
+                    },
+                    on: {
+                        input: function (event) {
+                            self.$emit('input', event.target.value)
+                        }
+                    }
+                })
+            }
+
+
+        })
+
+        var vm =new Vue({
+            el: '#app',
+            data:
+                {
+                    valueData: 'hi'
+                }
+        })
+
+    </script>
+
+</body>
+
+</html>
