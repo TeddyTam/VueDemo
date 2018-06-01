@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>advance</title>
+    <meta charset="utf-8"></meta>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+
+<body>
+    <div id="app">
+        <smart-list v-bind:items="['123','456']"></smart-list>
+    </div>
+
+    <script>
+
+        var EmptyList = { /* ... */ }
+        var TableList = { /* ... */ }
+        var OrderedList = { /* ... */ }
+        var UnorderedList = { /* ... */ }
+
+        Vue.component('smart-list', {
+            functional: true,
+            props: {
+                items: {
+                    type: Array,
+                    required: true
+                },
+                isOrdered: Boolean
+            },
+            render: function (createElement, context) {
+                function appropriateListComponent() {
+                    var items = context.props.items
+
+                    if (items.length === 0) return EmptyList
+                    if (typeof items[0] === 'object') return TableList
+                    if (context.props.isOrdered) return OrderedList
+
+                    return UnorderedList
+                }
+
+                return createElement(
+                    appropriateListComponent(),
+                    context.data,
+                    context.children
+                )
+            }
+
+        })
+
+        new Vue({
+            el: '#app'
+
+        })
+
+    </script>
+
+</body>
+
+</html>
